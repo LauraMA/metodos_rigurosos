@@ -225,8 +225,8 @@ class Intervalo(object):
         Calcula la exponencial de un intervalo
         """
 
-        import mpmath as mp
-	return Intervalo(mp.exp(self.lo), mp.exp(self.hi))
+        import math 
+	return Intervalo(math.exp(self.lo), math.exp(self.hi))
 
 
     def log(self):
@@ -235,6 +235,25 @@ class Intervalo(object):
 	"""
 	import mpmath as mp
 	return Intervalo(mp.log(self.lo), mp.log(self.hi))
+
+    
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
