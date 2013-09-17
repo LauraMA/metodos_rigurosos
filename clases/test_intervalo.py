@@ -187,3 +187,29 @@ def test_Abs():
     c=a.abs()
     
     assert c==max([abs(a.lo),abs(a.hi)])
+
+
+
+def test_exp():
+    """
+    Se verifica que la operacion exponancial funcione
+    """
+    num, num2 = TwoReals()
+    import mpmath as mp
+    a = mp.exp(num)
+    b = mp.exp(num2)
+    c = exp(Intervalo(num, num2))
+    assert a == c.lo and b == c.hi
+
+def test_log():
+    """
+    Se verifica que la operacion logaritmo funcione.
+    """
+
+    num, num2 = TwoReals()
+    import mpmath as mp
+    a = mp.log(num)
+    b = mp.log(num2)
+    c=log(Intervalo(num, num2))
+
+    assert a == c.lo and b == c.hi 

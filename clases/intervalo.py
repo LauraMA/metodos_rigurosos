@@ -1,4 +1,4 @@
-
+﻿
 # -*- coding: utf-8 -*- 
 
 class Intervalo(object):
@@ -216,4 +216,27 @@ class Intervalo(object):
         
         return max([abs(self.lo),abs(self.hi)])
 	
+
+
+    #funciones elementales para intervalos
+
+    def exp(self):
+	"""
+        Calcula la exponencial de un intervalo
+        """
+
+        import mpmath as mp
+	return Intervalo(mp.exp(self.lo), mp.exp(self.hi))
+
+
+    def log(self):
+	"""
+	Calcula el logaritmo de un intervalo
+	"""
+	import mpmath as mp
+	return Intervalo(mp.log(self.lo), mp.log(self.hi))
+
+
+
+
 
