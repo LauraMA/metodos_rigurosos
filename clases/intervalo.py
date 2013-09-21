@@ -217,6 +217,7 @@ class Intervalo(object):
         return max([abs(self.lo),abs(self.hi)])
 	
 
+<<<<<<< HEAD
 
     #funciones elementales para intervalos
       	
@@ -224,15 +225,25 @@ class Intervalo(object):
 	"""
 	Calcula la exponencial de un intervalo.
 	"""
+=======
+    #funciones elementales para intervalos
+      
+    def exp(self):
+	"""Calcula la exponencial de un intervalo."""
+>>>>>>> origin/lausNB
 	
         return Intervalo(mp.exp(self.lo), mp.exp(self.hi))
 
 
 
     def log(self):
+<<<<<<< HEAD
 	"""
 	Calcula el logaritmo de un intervalo.
 	"""
+=======
+	"""Calcula el logaritmo de un intervalo."""
+>>>>>>> origin/lausNB
 	
 	
 	Dom_log = Intervalo(0,mp.inf)
@@ -244,6 +255,7 @@ class Intervalo(object):
 	elif self.hi < 0:
 	  raise ValueError("La función logaritmo no puede tomar intervalos totalmente negativos. El intervalo [%f,%f] es negativo." % (self.lo, self.hi) )
 	
+<<<<<<< HEAD
 
 	elif self.lo < 0 and self.hi >= 0:
 	  Dom_restr = Dom_log & Intervalo(self.lo,self.hi)
@@ -254,4 +266,11 @@ class Intervalo(object):
 
 
 
+=======
+>>>>>>> origin/lausNB
 
+	elif self.lo < 0 and self.hi >= 0:
+	  Dom_restr = Dom_log & Intervalo(self.lo,self.hi)
+	  print "WARNING: El intervalo contiene numeros negativos. Se toma el intervalo restringido [%f,%f]."\
+		% (Dom_restr.lo, Dom_restr.hi)
+	  return Intervalo(mp.log(Dom_restr.lo), mp.log(Dom_restr.hi))

@@ -1,9 +1,16 @@
 # Escribimos funciones con el nombre test_ALGO
+from sympy import mpmath as mp
+from intervalo import *
 
+<<<<<<< HEAD
 from intervalo_Laura import *
 
 import numpy as np
 
+=======
+import numpy as np
+
+>>>>>>> origin/lausNB
 def TwoReals():
     '''
     Funcion auxiliar para el test de intervalos con intervalos aleatorios
@@ -195,7 +202,10 @@ def test_exp():
     Se verifica que la operacion exponancial funcione
     """
     num, num2 = TwoReals()
+<<<<<<< HEAD
     from sympy import mpmath as mp
+=======
+>>>>>>> origin/lausNB
 
     a = mp.exp(num)
     b = mp.exp(num2)
@@ -209,7 +219,11 @@ def test_log():
 
     num, num2 = TwoReals()
     
+<<<<<<< HEAD
     from sympy import mpmath as mp
+=======
+
+>>>>>>> origin/lausNB
     try:
       a = mp.log(num)
       b = mp.log(num2)
