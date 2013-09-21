@@ -7,10 +7,13 @@ from intervalo_Laura import *
 
 import numpy as np
 
+<<<<<<< HEAD
 =======
 import numpy as np
 
 >>>>>>> origin/lausNB
+=======
+>>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
 def TwoReals():
     '''
     Funcion auxiliar para el test de intervalos con intervalos aleatorios
@@ -203,6 +206,7 @@ def test_exp():
     """
     num, num2 = TwoReals()
 <<<<<<< HEAD
+<<<<<<< HEAD
     from sympy import mpmath as mp
 =======
 >>>>>>> origin/lausNB
@@ -210,6 +214,12 @@ def test_exp():
     a = mp.exp(num)
     b = mp.exp(num2)
     c = Intervalo(num, num2).exp()
+=======
+    import mpmath as mp
+    a = mp.exp(num)
+    b = mp.exp(num2)
+    c = exp(Intervalo(num, num2))
+>>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
     assert a == c.lo and b == c.hi
 
 def test_log():
@@ -218,6 +228,7 @@ def test_log():
     """
 
     num, num2 = TwoReals()
+<<<<<<< HEAD
     
 <<<<<<< HEAD
     from sympy import mpmath as mp
@@ -242,3 +253,11 @@ def test_log():
     
     
     
+=======
+    import mpmath as mp
+    a = mp.log(num)
+    b = mp.log(num2)
+    c=log(Intervalo(num, num2))
+
+    assert a == c.lo and b == c.hi 
+>>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89

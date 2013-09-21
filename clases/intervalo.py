@@ -218,6 +218,7 @@ class Intervalo(object):
 	
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     #funciones elementales para intervalos
       	
@@ -262,10 +263,35 @@ class Intervalo(object):
 	  print "WARNING: El intervalo contiene numeros negativos. Se toma el intervalo restringido [%f,%f]."\
 		% (Dom_restr.lo, Dom_restr.hi)
 	  return Intervalo(mp.log(Dom_restr.lo), mp.log(Dom_restr.hi))	
+=======
+
+    #funciones elementales para intervalos
+
+    def exp(self):
+	"""
+        Calcula la exponencial de un intervalo
+        """
+
+        import math 
+	return Intervalo(math.exp(self.lo), math.exp(self.hi))
+
+
+    def log(self):
+	"""
+	Calcula el logaritmo de un intervalo
+	"""
+	import mpmath as mp
+	return Intervalo(mp.log(self.lo), mp.log(self.hi))
+
+    
+	
+
+>>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
 
 
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> origin/lausNB
 
@@ -274,3 +300,21 @@ class Intervalo(object):
 	  print "WARNING: El intervalo contiene numeros negativos. Se toma el intervalo restringido [%f,%f]."\
 		% (Dom_restr.lo, Dom_restr.hi)
 	  return Intervalo(mp.log(Dom_restr.lo), mp.log(Dom_restr.hi))
+=======
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+>>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
