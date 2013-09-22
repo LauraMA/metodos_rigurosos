@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 # Escribimos funciones con el nombre test_ALGO
 from sympy import mpmath as mp
 from intervalo import *
@@ -15,9 +17,15 @@ import numpy as np
 =======
 >>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
 def TwoReals():
+<<<<<<< HEAD
+    """
+    Funcion auxiliar para el test de intervalos con intervalos aleatorios
+    """
+=======
     '''
     Funcion auxiliar para el test de intervalos con intervalos aleatorios
     '''
+>>>>>>> f638a8e68e582657ac5e41c10d04e9c51a263ca6
     num=np.random.uniform(-10.0,10.0)
     num2=np.random.uniform(-10.0,10.0)
     
@@ -42,10 +50,40 @@ def test_adicion():
     # Quiero checar que c, definido asi, esta bien:
     assert c.lo == num+numb and c.hi == num2+numb2
 
+def test_resta():
+    #Test para las restas siguiendo la idea de Neftalí.
+    
+    num=np.random.uniform(-10.0,10.0)
+    num2=np.random.uniform(-10.0,10.0)
+    num3=np.random.uniform(-10.0,10.0)
+    num4=np.random.uniform(-10.0,10.0)
+    
+    if num > num2:
+        num, num2 = num2, num
+    if num3 > num4:
+        num3, num4 = num4, num3
+    
+    a=Intervalo(num,num2)
+    b=Intervalo(num3,num4)
+    
+    c = a - b
+    d = 3.0 - a
+    e = a - 3.0
+
+    assert c.lo== (num - num4) and c.hi== (num2 - num3)
+    assert d.lo== (3.0 - num2) and d.hi== (3.0 - num)
+    assert e.lo== (num - 3.0) and e.hi== (num2 - 3.0)
+    
 def test_multiplicacion():
+<<<<<<< HEAD
+    """
+    Se verfica la multiplicacion entre intervalos
+    """
+=======
     '''
     Se verfica la multiplicacion entre intervalos
     '''
+>>>>>>> f638a8e68e582657ac5e41c10d04e9c51a263ca6
     # Test de la multiplicacion (Laura y Leon)
     num,num2=TwoReals()
     numb,numb2=TwoReals()
@@ -84,9 +122,15 @@ def test_multiplicacion():
 
 # Con esto checamos que la funcion igualdad funcione
 def test_igualdad():
+<<<<<<< HEAD
+    """
+    Se verifica la igualdad entre intervalos
+    """
+=======
     '''
     Se verifica la igualdad entre intervalos
     '''
+>>>>>>> f638a8e68e582657ac5e41c10d04e9c51a263ca6
     num,num2=TwoReals()
     x = Intervalo(num,num2)
     y = Intervalo(num,num2)
@@ -99,9 +143,15 @@ def test_igualdad():
     assert z == num
 
 def test_interseccion():
+<<<<<<< HEAD
+    """
+    Test de interseccion de intervalos
+    """
+=======
     '''
     Test de interseccion de intervalos
     '''
+>>>>>>> f638a8e68e582657ac5e41c10d04e9c51a263ca6
     num,num2=TwoReals()
     numb,numb2=TwoReals()
     #Se eligen los intervalos de la siguiente manera para evitar
@@ -199,6 +249,7 @@ def test_Abs():
     assert c==max([abs(a.lo),abs(a.hi)])
 
 
+<<<<<<< HEAD
 
 def test_exp():
     """
@@ -261,3 +312,94 @@ def test_log():
 
     assert a == c.lo and b == c.hi 
 >>>>>>> 5a10afa888e40d0e06c94e738c2cc842b358dd89
+=======
+def test_sub():
+    a=Intervalo(-11,4)
+    b=Intervalo(2,10)
+    c=a-b
+    assert c.lo==-21 and c.hi==2
+
+
+def test_comparacion_lt():
+    """Test < de intervalos."""
+
+    a=Intervalo(-1,1)
+    b=Intervalo(0,1)
+    c=Intervalo(1,2)
+    d=Intervalo(2,3)
+
+    assert (a<a) == False
+    assert (a<b) == False and (b<a) == False
+    assert (b<c) == False and (c<b) == False
+    assert (b<d) == True  and (d<b) == False
+    assert (c<d) == False and (d<c) == False
+
+def test_comparacion_gt():
+    """Test > de intervalos."""
+
+    a=Intervalo(-1,1)
+    b=Intervalo(0,1)
+    c=Intervalo(1,2)
+    d=Intervalo(2,3)
+    
+    assert (a>a) == False
+    assert (a>b) == False and (b>a) == False
+    assert (b>c) == False and (c>b) == False
+    assert (b>d) == False and (d>b) == True
+    assert (c>d) == False and (d>c) == False
+    
+def test_comparacion_le():
+    """Test <= de intervalos."""
+    a=Intervalo(-1,1)
+    b=Intervalo(0,1)
+    c=Intervalo(1,2)
+    d=Intervalo(2,3)
+
+    assert (a<=a) == True
+    assert (a<=b) == True and (b<=a) == False
+    assert (b<=c) == True and (c<=b) == False
+    assert (b<=d) == True and (d<=b) == False
+    assert (c<=d) == True and (d<=c) == False
+
+def test_comparacion_ge():
+    """Test >= de intervalos."""
+    a=Intervalo(-1,1)
+    b=Intervalo(0,1)
+    c=Intervalo(1,2)
+    d=Intervalo(2,3)
+
+    assert (a>=a) == True
+    assert (a>=b) == False and (b>=a) == True
+    assert (b>=c) == False and (c>=b) == True
+    assert (b>=d) == False and (d>=b) == True
+    assert (c>=d) == False and (d>=c) == True
+
+def test_hull():
+    num=np.random.uniform(-10.0,10.0,[10])
+    num2=np.random.uniform(-10.0,10.0,[10])
+    a = Intervalo(num[0],num2[0])
+    b=[]
+    for i in range(len(num)):
+      a = Intervalo.hull(a,Intervalo(num[i],num2[i]))
+      b.append(Intervalo(num[i],num2[i]))
+    ##plot_intevalo(b)
+    assert (a.lo==min(min(num),min(num2))) & (a.hi==max(max(num),max(num2)))
+
+##def plot_intevalo(a,y=0):
+##    from matplotlib import pyplot as plt
+##    mins=[]
+##    maxs=[]
+##    for i in a:
+##      y=y+0.05
+##      col=np.random.uniform(0.0,1.0,[3])
+##      plt.figure(1)
+##      plt.hlines(y,i.lo,i.hi,colors=tuple(col),linewidths=1.5)
+##      plt.vlines(i.lo,y-0.03,y+0.03,colors=tuple(col),linewidths=1.5)
+##      plt.vlines(i.hi,y-0.03,y+0.03,colors=tuple(col),linewidths=1.5)
+##      mins.append(i.lo)
+##      maxs.append(i.hi)
+##      
+##    plt.xlim(min(mins)-1.0,max(maxs)+1.0)
+##    #plt.ylim(y-0.5,y+0.5)
+##    return plt.show()
+>>>>>>> 0e5df9967494df964f119048ff9e2e7418f07fd0
