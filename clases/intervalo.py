@@ -440,14 +440,13 @@ class Intervalo(object):
         """
         Calcula el logaritmo de un intervalo.
         """
-        #try:
-        #   return Intervalo(math.log(self.lo), math.log(self.hi))
-
-        #except:
-
+ 
         restringido = self.restringir_dominio()
-
-        return Intervalo(math.log(restringido.lo), math.log(restringido.hi))
+        try:
+            return Intervalo(math.log(restringido.lo), math.log(restringido.hi))
+           
+        except restringido is None:
+            return math.nan
 
 
     def exp(self):
@@ -586,5 +585,4 @@ def chop_parts(X,parts):
             lo = lo + spacing
             hi = hi + spacing
         return l
-
 
