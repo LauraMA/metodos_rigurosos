@@ -356,7 +356,7 @@ def test_log():
     Se verifica que el logaritmo funcione 
     """
     num,num2 = TwoReals()
-    a = Intervalo(num + 11, num2 + 11)
+    a = Intervalo(num + 10, num2 + 10)
     
     result = log(a)
     
