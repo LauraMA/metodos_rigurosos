@@ -358,7 +358,7 @@ def test_restringir_dominio():
     a = Intervalo(num, num2)
     dominio2 = Intervalo(-10, 10)
         
-    assert a.restringir_dominio(dominio=dominio2) == a
+    assert a.restringir_dominio(dominio = dominio2) == a
 
 
 def test_exp():
