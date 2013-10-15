@@ -127,7 +127,7 @@ def test_log():
     
         num,num2=Real(1.0,100.0),Real(-100.0,100.0)
     
-        a = DifAuto(num,num2).log
+        a = DifAuto(num,num2).log()
     
         assert a.valor==math.log(num) and a.deriv==num2/num
         
@@ -141,7 +141,7 @@ def test_exp():
     
         num,num2=Real(1.0,100.0),Real(-100.0,100.0)
     
-        a=math.exp(DifAuto(num,num2))
+        a = DifAuto(num,num2).exp()
     
         assert a.valor==math.exp(num) and a.deriv==num2*math.exp(num)
 
@@ -154,7 +154,7 @@ def test_sin():
     for k in range(0,100):
         
         num=Real()
-        a=math.sin(DifAuto(num,1))
+        a = DifAuto(num,1).sin()
     
     
         assert a.valor==math.sin(num) and a.deriv==math.cos(num)
@@ -167,7 +167,7 @@ def test_cos():
     for k in range(0,100):
         
         num=Real()
-        a=math.cos(DifAuto(num,1))
+        a = DifAuto(num,1).cos()
     
     
         assert a.valor==math.cos(num) and a.deriv==-math.sin(num)
