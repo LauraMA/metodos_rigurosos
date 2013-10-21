@@ -47,7 +47,7 @@ class DifAuto(object):
 
     def __rsub__(self, otro):
         
-        return self - otro
+        return -self + otro
         
     def __pow__(self, n):
         
@@ -56,6 +56,10 @@ class DifAuto(object):
         '''
        
         return DifAuto(self.valor**n, n*self.valor**(n-1)*self.deriv)
+        
+    def __neg__(self):
+        
+        return DifAuto(-self.valor, -self.deriv)
         
     def __mul__(self, otro):
         
